@@ -44,7 +44,7 @@ def download_pixabay_videos(query, target_count=3):
         return []
 
 async def generate_assets(topic="Future of Artificial Intelligence"):
-    """ Gemini API dware script ani edge-tts dware voiceover banavane """
+    """ Gemini API द्वारे स्क्रिप्ट आणि edge-tts द्वारे व्हॉईसओव्हर बनवणे """
     client = genai.Client(api_key=GEMINI_API_KEY)
     
     prompt = (
@@ -55,8 +55,9 @@ async def generate_assets(topic="Future of Artificial Intelligence"):
         "Do NOT include any sound effects, labels, or stage directions like [Music], [Narrator], etc."
     )
     
+    # इथे gemini-1.5-flash वापरले आहे जे नवीन आणि पूर्णपणे सपोर्टेड आहे
     response = client.models.generate_content(
-        model='gemini-2.5-flash',
+        model='gemini-1.5-flash',
         contents=prompt,
     )
     script_text = response.text.strip()
