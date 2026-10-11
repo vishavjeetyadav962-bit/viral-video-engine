@@ -1,5 +1,5 @@
 google-generativeai
 edge-tts
 requests
-moviepy
+moviepy==1.0.3
 proglog
