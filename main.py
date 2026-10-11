@@ -44,16 +44,16 @@ def download_pixabay_videos(query, target_count=3):
         return []
 
 async def generate_assets(topic="Future of Artificial Intelligence"):
-    """ Gemini API द्वारे स्क्रिप्ट आणि edge-tts द्वारे व्हॉईसओव्हर बनवणे """
+    """ Gemini API dware script ani edge-tts dware voiceover banavane """
     client = genai.Client(api_key=GEMINI_API_KEY)
     
-    prompt = f"""
-    Create a 30-second highly viral YouTube Shorts script about: {topic}.
-    Target Audience: United States (High CPM).
-    Language: Native Fluent English.
-    Format output ONLY as plain text narration script suitable for direct voiceover.
-    Do NOT include any sound effects, labels, or stage directions like [Music], [Narrator], etc.
-    """
+    prompt = (
+        f"Create a 30-second highly viral YouTube Shorts script about: {topic}.\n"
+        "Target Audience: United States (High CPM).\n"
+        "Language: Native Fluent English.\n"
+        "Format output ONLY as plain text narration script suitable for direct voiceover.\n"
+        "Do NOT include any sound effects, labels, or stage directions like [Music], [Narrator], etc."
+    )
     
     response = client.models.generate_content(
         model='gemini-2.5-flash',
