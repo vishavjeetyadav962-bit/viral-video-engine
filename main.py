@@ -3,14 +3,11 @@ import uuid
 import requests
 import asyncio
 import edge_tts
-import google.generativeai as genai
+from google import genai
 from moviepy.editor import VideoFileClip, AudioFileClip, concatenate_videoclips
 
 GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY")
 PIXABAY_API_KEY = os.environ.get("PIXABAY_API_KEY")
-
-if GEMINI_API_KEY:
-    genai.configure(api_key=GEMINI_API_KEY)
 
 def download_pixabay_videos(query, target_count=3):
     if not PIXABAY_API_KEY:
@@ -38,15 +35,18 @@ def download_pixabay_videos(query, target_count=3):
                     break
     return downloaded_files
 
-async def generate_assets(topic="Future of AI in 2030"):
-    model = genai.GenerativeModel('gemini-1.5-flash')
+async def generate_assets(topic="Future of AI"):
+    client = genai.Client(api_key=GEMINI_API_KEY)
     prompt = f"""
     Create a 30-second highly viral YouTube Shorts script about: {topic}.
     Target Audience: United States (High CPM).
     Language: Native Fluent English.
     Format output ONLY as plain text narration script suitable for direct voiceover.
     """
-    response = model.generate_content(prompt)
+    response = client.models.generate_content(
+        model='gemini-2.5-flash',
+        contents=prompt,
+    )
     script_text = response.text.strip()
     
     audio_path = "voice.mp3"
