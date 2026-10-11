@@ -39,7 +39,7 @@ def download_pixabay_videos(query, target_count=3):
     return downloaded_files
 
 async def generate_assets(topic="Future of AI in 2030"):
-    model = genai.GenerativeModel('gemini-2.5-flash')
+    model = genai.GenerativeModel('gemini-1.5-flash')
     prompt = f"""
     Create a 30-second highly viral YouTube Shorts script about: {topic}.
     Target Audience: United States (High CPM).
