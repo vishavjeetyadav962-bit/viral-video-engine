@@ -47,8 +47,7 @@ async def generate_assets(topic="Future of AI"):
     communicate = edge_tts.Communicate(script_text, "en-US-ChristopherNeural")
     await communicate.save(audio_path)
     return script_text, audio_path
-def render_final_video(audio_path, video_files, output_path="final_short.mp4"):
-    audio_clip = AudioFileClip(audio_path)
+def render_final_video(audio_path, video_files, output_path="final_short.mp4"):audio_clip = AudioFileClip(audio_path)
     audio_duration = audio_clip.duration
     clips = []
     for vf in video_files:
