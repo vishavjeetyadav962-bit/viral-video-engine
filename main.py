@@ -50,14 +50,14 @@ async def generate_assets(topic="Future of Artificial Intelligence"):
     prompt = (
         f"Create a 30-second highly viral YouTube Shorts script about: {topic}.\n"
         "Target Audience: United States (High CPM).\n"
-        "Language: Native Fluent English\n"
+        "Language: Native Fluent English.\n"
         "Format output ONLY as plain text narration script suitable for direct voiceover.\n"
         "Do NOT include any sound effects, labels, or stage directions like [Music], [Narrator], etc."
     )
     
-    # इथे gemini-1.5-flash वापरले आहे जे नवीन आणि पूर्णपणे सपोर्टेड आहे
+    # इथे gemini-2.0-flash वापरले आहे जे नवीन SDK सोबत अगदी सुरळीत चालते
     response = client.models.generate_content(
-        model='gemini-1.5-flash',
+        model='gemini-2.0-flash',
         contents=prompt,
     )
     script_text = response.text.strip()
