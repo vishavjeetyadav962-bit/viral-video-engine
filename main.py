@@ -50,7 +50,7 @@ async def generate_assets(topic="Future of Artificial Intelligence"):
     prompt = (
         f"Create a 30-second highly viral YouTube Shorts script about: {topic}.\n"
         "Target Audience: United States (High CPM).\n"
-        "Language: Native Fluent English.\n"
+        "Language: Native Fluent English\n"
         "Format output ONLY as plain text narration script suitable for direct voiceover.\n"
         "Do NOT include any sound effects, labels, or stage directions like [Music], [Narrator], etc."
     )
